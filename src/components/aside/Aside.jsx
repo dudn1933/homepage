@@ -28,8 +28,7 @@ const Aside = () => {
     }
 
     const onClickMoveEvent = (pageNumber) => {
-        const result = pageNumber === 0 ? 'mainLocation' : null;
-        // pageNumber === 1 ? 'prodLocation' : pageNumber === 2 ? 'contentLocation' : pageNumber === 3 ? 'useLocation' : pageNumber === 4 ? 'footerLocation' : null;
+        const result = pageNumber === 0 ? 'mainLocation' : pageNumber === 1 ? 'prodLocation' : pageNumber === 2 ? 'hicardiLocation': null;
         globalDispatch({type:'navigationView', payload:{ show: !navigationBar.show}});
         App.scrollTo({top:globalState.offsetTop[result], behavior:'smooth'});
     }    
@@ -43,9 +42,9 @@ const Aside = () => {
             { navigationBar.show && (
                 <StyledNavigationBar className="navigationBar">
                     <div onClick={() => onClickMoveEvent(0)}>메인</div>
-                    {/* <div onClick={() => onClickMoveEvent(1)}>carousel사진</div>
-                    <div onClick={() => onClickMoveEvent(2)}>기기설명</div>
-                    <div onClick={() => onClickMoveEvent(3)}>사용법</div>
+                    <div onClick={() => onClickMoveEvent(1)}>회사제품</div>
+                    <div onClick={() => onClickMoveEvent(2)}>Hicardi</div>
+                    {/* <div onClick={() => onClickMoveEvent(3)}>사용법</div>
                     <div onClick={() => onClickMoveEvent(4)}>support</div> */}
                 </StyledNavigationBar>
             )}
